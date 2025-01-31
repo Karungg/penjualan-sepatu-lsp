@@ -11,6 +11,7 @@
                 <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
                 @auth
                     <li class="nav-item"><a class="nav-link" href="#!">My Purchase</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('profile.edit') }}">My Profile</a></li>
                 @endauth
             </ul>
             @guest

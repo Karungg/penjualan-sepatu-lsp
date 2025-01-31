@@ -2,12 +2,7 @@
     <div class="card-header">{{ __('Profile Information') }}</div>
 
     <div class="card-body">
-        <form
-            id="send-verification"
-            class="d-none"
-            method="post"
-            action="{{ route('verification.send') }}"
-        >
+        <form id="send-verification" class="d-none" method="post" action="{{ route('verification.send') }}">
             @csrf
         </form>
         <form method="POST" action="{{ route('profile.update') }}">
@@ -20,7 +15,8 @@
                 </label>
 
                 <div class="col-md-6">
-                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name', $user->name) }}" required autofocus autocomplete="name">
+                    <input id="name" type="text" class="form-control @error('name') is-invalid @enderror"
+                        name="name" value="{{ old('name', $user->name) }}" required autofocus autocomplete="name">
 
                     @error('name')
                         <span class="invalid-feedback" role="alert">
@@ -36,7 +32,8 @@
                 </label>
 
                 <div class="col-md-6">
-                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email', $user->email) }}" required autocomplete="email">
+                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
+                        name="email" value="{{ old('email', $user->email) }}" required autocomplete="email">
 
                     @error('email')
                         <span class="invalid-feedback" role="alert">
@@ -44,7 +41,7 @@
                         </span>
                     @enderror
 
-                    @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && ! $user->hasVerifiedEmail())
+                    @if ($user instanceof \Illuminate\Contracts\Auth\MustVerifyEmail && !$user->hasVerifiedEmail())
                         <div class="mt-2">
                             <p class="mb-0">
                                 {{ __('Your email address is unverified.') }}
@@ -61,6 +58,44 @@
                             @endif
                         </div>
                     @endif
+                </div>
+            </div>
+
+            {{-- Phone --}}
+            <div class="row mb-3">
+                <label for="phone" class="col-md-4 col-form-label text-md-end">
+                    {{ __('Phone') }}
+                </label>
+
+                <div class="col-md-6">
+                    <input id="phone" type="number" class="form-control @error('phone') is-invalid @enderror"
+                        name="phone" value="{{ old('phone', $user->phone) }}" required autocomplete="phone">
+
+                    @error('phone')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+
+                </div>
+            </div>
+
+            {{-- Address --}}
+            <div class="row mb-3">
+                <label for="address" class="col-md-4 col-form-label text-md-end">
+                    {{ __('Address') }}
+                </label>
+
+                <div class="col-md-6">
+                    <input id="address" type="text" class="form-control @error('address') is-invalid @enderror"
+                        name="address" value="{{ old('address', $user->address) }}" required autocomplete="address">
+
+                    @error('address')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+
                 </div>
             </div>
 
