@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d9143bd53ab0578d7cdfbefef43ab36d",
+    "content-hash": "ce453c8cddf325d7e8f60e3a6e78552b",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -7682,6 +7682,53 @@
             "time": "2025-01-25T12:00:00+00:00"
         },
         {
+            "name": "guizoxxv/laravel-breeze-bootstrap",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/guizoxxv/laravel-breeze-bootstrap.git",
+                "reference": "9aecff27e2b5657fc138760d9df1a89816e444ab"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/guizoxxv/laravel-breeze-bootstrap/zipball/9aecff27e2b5657fc138760d9df1a89816e444ab",
+                "reference": "9aecff27e2b5657fc138760d9df1a89816e444ab",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/breeze": "^2.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Guizoxxv\\LaravelBreezeBootstrap\\LaravelBreezeBootstrapServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Guizoxxv\\LaravelBreezeBootstrap\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Gustavo Oliveira",
+                    "email": "guizoxxv@gmail.com"
+                }
+            ],
+            "description": "A Laravel package to use Bootstrap scaffolding with Breeze.",
+            "support": {
+                "issues": "https://github.com/guizoxxv/laravel-breeze-bootstrap/issues",
+                "source": "https://github.com/guizoxxv/laravel-breeze-bootstrap/tree/v1.0.2"
+            },
+            "time": "2024-07-22T13:50:26+00:00"
+        },
+        {
             "name": "hamcrest/hamcrest-php",
             "version": "v2.0.1",
             "source": {
@@ -7731,6 +7778,67 @@
                 "source": "https://github.com/hamcrest/hamcrest-php/tree/v2.0.1"
             },
             "time": "2020-07-09T08:09:16+00:00"
+        },
+        {
+            "name": "laravel/breeze",
+            "version": "v2.3.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/breeze.git",
+                "reference": "c40f7fce4fd80e39c7f4317697eeba21d2344003"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/breeze/zipball/c40f7fce4fd80e39c7f4317697eeba21d2344003",
+                "reference": "c40f7fce4fd80e39c7f4317697eeba21d2344003",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/console": "^11.0",
+                "illuminate/filesystem": "^11.0",
+                "illuminate/support": "^11.0",
+                "illuminate/validation": "^11.0",
+                "php": "^8.2.0",
+                "symfony/console": "^7.0"
+            },
+            "require-dev": {
+                "laravel/framework": "^11.0",
+                "orchestra/testbench-core": "^9.0",
+                "phpstan/phpstan": "^2.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Laravel\\Breeze\\BreezeServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Laravel\\Breeze\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Taylor Otwell",
+                    "email": "taylor@laravel.com"
+                }
+            ],
+            "description": "Minimal Laravel authentication scaffolding with Blade and Tailwind.",
+            "keywords": [
+                "auth",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/laravel/breeze/issues",
+                "source": "https://github.com/laravel/breeze"
+            },
+            "time": "2025-01-26T19:08:50+00:00"
         },
         {
             "name": "laravel/pail",
