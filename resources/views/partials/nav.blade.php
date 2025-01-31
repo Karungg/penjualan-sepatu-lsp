@@ -9,18 +9,9 @@
                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{ route('home') }}">Home</a>
                 </li>
                 <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">All Products</a></li>
-                        <li>
-                            <hr class="dropdown-divider" />
-                        </li>
-                        <li><a class="dropdown-item" href="#!">Popular Items</a></li>
-                        <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
-                    </ul>
-                </li>
+                @auth
+                    <li class="nav-item"><a class="nav-link" href="#!">My Purchase</a></li>
+                @endauth
             </ul>
             @guest
                 <div class="d-flex">
@@ -32,6 +23,13 @@
                     </a>
                 </div>
             @endguest
+            @hasrole('admin')
+                <div class="d-flex">
+                    <a class="btn btn-outline-dark m-2" href="{{ route('filament.admin.pages.dashboard') }}">
+                        Dashboard
+                    </a>
+                </div>
+            @endhasrole
         </div>
     </div>
 </nav>
