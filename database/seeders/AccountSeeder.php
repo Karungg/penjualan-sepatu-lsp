@@ -15,7 +15,7 @@ class AccountSeeder extends Seeder
     {
         Account::create([
             'bank' => 'BCA',
-            'behalf_of' => 'Aing',
+            'behalf_of' => 'toko-sepatu',
             'account_number' => '129485637'
         ]);
     }

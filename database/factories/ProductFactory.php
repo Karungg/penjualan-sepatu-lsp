@@ -21,7 +21,8 @@ class ProductFactory extends Factory
             'description' => fake()->realText(50),
             'color' => fake()->colorName(),
             'stock' => fake()->numberBetween(1, 10000),
-            'price' => fake()->numberBetween(100000, 9999999)
+            'price' => fake()->numberBetween(100000, 9999999),
+            'image' => fake()->imageUrl()
         ];
     }
 }

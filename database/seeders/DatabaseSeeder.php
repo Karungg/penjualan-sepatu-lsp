@@ -20,5 +20,10 @@ class DatabaseSeeder extends Seeder
 
         User::factory()->admin()->create();
         User::factory()->customer()->create();
+
+        $this->call([
+            ProductSeeder::class,
+            AccountSeeder::class
+        ]);
     }
 }

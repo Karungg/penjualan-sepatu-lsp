@@ -16,4 +16,13 @@ class HomeController extends Controller
             'products' => $products
         ]);
     }
+
+    public function show(string $id): View
+    {
+        $product = Product::find($id);
+
+        return view('show', [
+            'product' => $product
+        ]);
+    }
 }
