@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -37,8 +38,28 @@ class UserFactory extends Factory
      */
     public function unverified(): static
     {
-        return $this->state(fn (array $attributes) => [
+        return $this->state(fn(array $attributes) => [
             'email_verified_at' => null,
         ]);
+    }
+
+    public function admin()
+    {
+        return $this->state(fn(array $attributes) => [
+            'name' => 'admin',
+            'email' => 'admin@gmail.com',
+        ])->afterCreating(function (User $user) {
+            $user->assignRole('admin');
+        });
+    }
+
+    public function customer()
+    {
+        return $this->state(fn(array $attributes) => [
+            'name' => 'customer',
+            'email' => 'customer@gmail.com',
+        ])->afterCreating(function (User $user) {
+            $user->assignRole('customer');
+        });
     }
 }
