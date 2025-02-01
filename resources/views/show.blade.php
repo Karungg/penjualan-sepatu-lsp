@@ -32,9 +32,14 @@
                             <label class="btn btn-outline-dark" for="black">{{ $product->color }}</label>
                         </div>
                     </div>
-                    <button class="btn btn-primary btn-lg mb-3 me-2">
-                        <i class="bi bi-cart-plus"></i> Beli Sekarang
-                    </button>
+                    @auth
+                        <form action="{{ route('transaction.store', $product->id) }}" method="post">
+                            @csrf
+                            <button type="submit" class="btn btn-primary btn-lg mb-3 me-2">
+                                <i class="bi bi-cart-plus"></i> Beli Sekarang
+                            </button>
+                        </form>
+                    @endauth
                     <button class="btn btn-outline-secondary btn-lg mb-3">
                         <i class="bi bi-heart"></i> Add to Wishlist
                     </button>

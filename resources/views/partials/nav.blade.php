@@ -8,10 +8,8 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="{{ route('home') }}">Home</a>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
                 @auth
-                    <li class="nav-item"><a class="nav-link" href="#!">My Purchase</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('profile.edit') }}">My Profile</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('transaction.index') }}">My Purchase</a></li>
                 @endauth
             </ul>
             @guest
@@ -24,13 +22,30 @@
                     </a>
                 </div>
             @endguest
-            @hasrole('admin')
-                <div class="d-flex">
-                    <a class="btn btn-outline-dark m-2" href="{{ route('filament.admin.pages.dashboard') }}">
-                        Dashboard
-                    </a>
-                </div>
-            @endhasrole
+            @auth
+                @hasrole('admin')
+                    <div class="d-flex">
+                        <a class="btn btn-outline-dark m-2" href="{{ route('filament.admin.pages.dashboard') }}">
+                            Dashboard
+                        </a>
+                    </div>
+                @endhasrole
+                @hasrole('customer')
+                    <div class="d-flex">
+                        <a class="btn btn-outline-dark m-2" href="{{ route('profile.edit') }}">
+                            My Profile
+                        </a>
+                    </div>
+                    <div class="d-flex">
+                        <form action="{{ route('logout') }}" method="post">
+                            @csrf
+                            <button type="submit" class="btn btn-outline-dark m-2" href="{{ route('logout') }}">
+                                Logout
+                            </button>
+                        </form>
+                    </div>
+                @endhasrole
+            @endauth
         </div>
     </div>
 </nav>
