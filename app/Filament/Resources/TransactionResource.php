@@ -19,9 +19,9 @@ class TransactionResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-shopping-cart';
 
-    protected static ?string $navigationGroup = 'Transaction';
+    protected static ?int $navigationSort = 3;
 
-    protected static ?int $navigationSort = 2;
+    protected static ?string $navigationGroup = 'Transaction';
 
     public static function form(Form $form): Form
     {
@@ -39,8 +39,15 @@ class TransactionResource extends Resource
                 Forms\Components\TextInput::make('total_amount')
                     ->required()
                     ->numeric(),
-                Forms\Components\TextInput::make('status')
-                    ->required(),
+                Forms\Components\Select::make('status')
+                    ->required()
+                    ->options([
+                        'pending' => 'Pending',
+                        'shipped' => 'Shipped',
+                        'success' => 'Success'
+                    ]),
+                Forms\Components\FileUpload::make('proof_of_payment')
+                    ->image(),
             ]);
     }
 

@@ -12,6 +12,8 @@ Route::get('/transaction/history/my-purchase', [TransactionController::class, 'i
     ->name('transaction.index');
 Route::post('/transaction/{id}', [TransactionController::class, 'store'])
     ->name('transaction.store');
+Route::post('/payment/{id}', [TransactionController::class, 'storePayment'])
+    ->name('transaction.payment');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
